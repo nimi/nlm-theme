@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [Roots Theme](http://roots.io/)
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
@@ -69,3 +70,9 @@ Everyone is welcome to help [contribute](CONTRIBUTING.md) and improve this proje
 ## Support
 
 Use the [Roots Discourse](http://discourse.roots.io/) to ask questions and get support.
+=======
+nlm-theme
+=========
+
+a wordpress theme for my personal site
+>>>>>>> 046aedaff9b3e863aab782e674f247e07753ae31
