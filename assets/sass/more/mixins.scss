@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+@mixin fontface($fontname) {
+  font-family: $fontname;
+  src: url('/assets/fonts/{$fontname}.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/{$fontname}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/{$fontname}.woff')  format('woff'), /* Modern Browsers */
+       url('/assets/fonts/{$fontname}.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/fonts/{$fontname}.svg#{$fontname}') format('svg'); /* Legacy iOS */
+} 
+
+@font-face {
+  @include fontface(headline);
+}
+
+@font-face {
+  @include fontface(aracne);
+}
+
+%aracne {
+  font-family: 'aracne', helvetica, sans-serif;
+}
+
+%headline-font {
+  font-family: 'headline', helvetica, sans-serif;
+}v
