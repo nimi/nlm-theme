@@ -49,6 +49,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   width: auto !important;
   overflow-x: hidden !important;
   -webkit-backface-visibility: hidden;
+  background-color: #333;
 }
 
 h1 { 
@@ -57,8 +58,11 @@ h1 {
 
 section, footer {
   top: 800px;
-  //position: static;
-  background-color: $white; 
+  //background-color: $white; 
+}
+
+footer {
+  display: none;
 }
 
 .btn, button {
@@ -104,7 +108,6 @@ section, footer {
   padding-right: 0;
   height: 80px;
   text-align: center;
- 
 }
 
 .navbar-fixed-top 
@@ -118,7 +121,6 @@ section, footer {
     li {
       display: inline-block;
     }
-
 }
 
 .navbar-header {
@@ -144,6 +146,7 @@ section, footer {
 }
 
 .navbar-nav {
+  background-color: $almostBlack;
 
    a {
      text-transform: uppercase;
@@ -184,6 +187,19 @@ section, footer {
 .inner-content {
   margin-left: auto;
   margin-right: auto;
+}
+
+.headline {
+  position: relative;
+}
+
+.center-block {
+  height: 50%;
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  max-height: 250px;
 }
 
 
@@ -250,12 +266,15 @@ section, footer {
   background-color: $mint;
   padding: 0 0 300px;
 
+  .center-block {
+    max-height: 325px;
+  }
+
   .headline {
     background-color: $darkGray;
     color: $white;
     text-align: center;
     height: 600px;
-    padding: 150px 0 250px;
 
     h1 {
       max-width: 940px;
@@ -321,7 +340,7 @@ section, footer {
 
   .module {
     text-align: left;
-    max-width: 940px;
+    //max-width: 940px;
     margin-bottom: 50px;
     padding: 0 30px 0 15px;
     line-height: 28px;
@@ -395,13 +414,14 @@ section, footer {
 .portfolio {
   clear: both;
   text-align: center;
+  background-color: $darkGray;
 
   .headline {
-    background-color: $darkGray;
     color: $white;
     height: 600px;
     padding-top: 0;
     text-align: center;
+    position: relative;
 
     h1 {
       max-width: 800px;
@@ -585,6 +605,7 @@ section, footer {
     text-align: left;
     line-height: 30px;
     padding: 0 20px;
+    min-height: 75px;
 
     h3 {
       font-size: 22px;
@@ -597,6 +618,7 @@ section, footer {
 
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 
     ul {
       padding-top: 5px;
@@ -640,15 +662,16 @@ section, footer {
   background-color: $mustard;
   clear: both;
   color: white;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   text-align: center;
 
   .headline {
     background-color: $darkGray;
     color: $white;
     text-align: center;
-    padding-top: 175px;
+    //padding-top: 175px;
     height: 600px;
+
 
     h1 {
       margin-top: auto;
@@ -681,8 +704,13 @@ section, footer {
 
   }
 
+  hr {
+      max-width: 100px;
+      border-top: 10px solid white;
+  }
+
   h1 {
-    margin: 50px auto;
+    margin: 50px auto 10px;
     text-align: center;
     font-size: 39px;
     line-height: 0px;
@@ -701,34 +729,34 @@ section, footer {
   ul {
     padding-left: 0;
     list-style: none;
-    margin-bottom: 50px;
     text-align: center;
+    margin-bottom: 0;
 
     li {
       background-color: $mustardDarker;
-      margin: 10px 0;
-      display: inline-block;
+      margin: 10px auto 0;
+      max-width: 90%;
+      height: 70px;
       height: 60px;
-      width: 41%;
-      max-width: 315px;
 
-      &#facebook:hover {
-        background-color: $facebookColor;
+      i {
+        background-color: rgba(0,0,0,0.1);
       }
-      &#linkedin:hover {
-        background-color: $linkedinColor;
-      }
-      &#twitter:hover {
-        background-color: $twitterColor;
-      }
-      &#github:hover {
-        background-color: $githubColor;
-      }
-      &#email:hover {
-        background-color: $emailColor;
-      }
-      &#skype:hover {
-        background-color: $skypeColor;
+
+      &:hover {
+
+        .icon-linkedin {
+          background-color: $linkedinColor;
+        }
+        .icon-twitter {
+          background-color: $twitterColor;
+        }
+        .icon-github-alt {
+          background-color: $githubColor;
+        }
+        .icon-skype {
+          background-color: $skypeColor;
+        }
       }
     }
 
@@ -736,7 +764,9 @@ section, footer {
 
   a {
     color: $white;
-    padding-left: 20px;
+    width: 100%;
+    display: block;
+    line-height: 60px;
 
     &:hover {
       text-decoration: none;
@@ -747,7 +777,9 @@ section, footer {
   i {
     font-size: 32px;
     background: none;
-    line-height: 70px
+    line-height: 60px;
+    width: 20%;
+    float: left;
   }
 
   input,
@@ -795,7 +827,7 @@ label {
 }
 
 #portfolio-detail,
-#about-detail {
+#resume-detail {
   display: none;
 
   section {
@@ -806,7 +838,7 @@ label {
 
 }
 
-#about-detail {
+#resume-detail {
   text-align: left;
   font-size: 12px;
 
@@ -989,7 +1021,7 @@ a.modalCloseImg {
   }
 }
 
-#about-detail{
+#resume-detail{
   background-color: $white;
 }
 
@@ -1082,7 +1114,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     
     }
 
-    #resume {
+    .resume {
   
       padding-bottom: 100px;
 
@@ -1146,7 +1178,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     .headline {
       
       height: 900px;
-      padding-top: 300px;
+      //padding-top: 300px;
 
       h1 {
         font-size: 34px;
@@ -1216,7 +1248,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
       margin-left: -20px;
   }
 
-  .navbar .nav > .active > a {
+  .navbar-nav > li > a {
     text-transform: uppercase;
     background: none;
     -webkit-box-shadow: inset 0 0px 0px;
@@ -1242,7 +1274,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
   }
 
-  .navbar .nav > .active > a {
+  .navbar-nav > li > a {
     font-size: 16px;
     line-height: 60px;
   }
@@ -1270,7 +1302,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     height: 90px;
   }
 
-  .navbar .nav > .active > a {
+  .navbar-nav > li > a {
     padding: 15px 25px;
   }
 
@@ -1311,12 +1343,11 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     }
 
     .headline {
-      height: 775px;
-      padding-top: 150px;
+      height: 925px;
 
 
       h1 {
-        padding: 75px 0 50px 0;
+        //padding: 75px 0 50px 0;
         font-size: 64px;
         line-height: 65px;
       }
@@ -1366,8 +1397,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   .portfolio {
 
     .headline {
-      height: 775px;
-      padding-top: 170px;
+      height: 925px;
 
       h1 {
         padding: 0;
@@ -1440,8 +1470,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
     .headline {
-      height: 775px;
-      padding-top: 300px;
+      //height: 1075px;
 
       h1 {
         font-size: 45px;
@@ -1455,7 +1484,6 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
       li {
         width: 100%;
-        height: 55px;
       }
 
     }
@@ -1463,6 +1491,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   }
 
   footer {
+    display: none;
     background-color: $darkGray;
     color: $white;
     text-align: center;
@@ -1515,7 +1544,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     }
   }
 
-  #about-detail {
+  #resume-detail {
     font-size: 14px;
   }
 
@@ -1539,7 +1568,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
   .portfolio {
 
     .headline {
-      padding-top: 300px;
+      //height: 1175px;
 
       h1 {
         padding: 0;
@@ -1603,4 +1632,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 }
 
 
-@media (min-width: $screen-lg-min) { }
+@media (min-width: $screen-lg-min) {
+
+  .contain {
+    max-width: 1170px;
+  }
+
+}
