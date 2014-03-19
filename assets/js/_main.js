@@ -28,151 +28,66 @@ var Roots = {
   // Home page
   home: {
     init: function() {
-
-      /** Prevent overflow in body when modal is open */
-        function overflowToggle() {
+      /** Prevent overflow in body when modal is open 
+      function overflowToggle() {
         $("body").css("overflow", "hidden");
         $('a.modalCloseImg').click(function() {
           $("body").css("overflow-y", "scroll");
         });
-        }
+      }*/
 
-        /** Create a modal that fades on overlay and with slide in content */
-        function createModal (el) {
-        $(el).modal({onOpen: function (dialog) {
-          dialog.overlay.fadeIn('slow', function () {
-            dialog.data.hide();
-            dialog.container.fadeIn('slow', function () {
-              dialog.data.slideDown('slow');
-            });
+      // Scroll to target
+      $(function() {
+        $('a').click(function() {
+          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+            var target = $(this.hash);
+
+            // if (target.offset().top != $(window).offset().top) {
+            target = target.length ? target : $('[id=' + this.hash.slice(1) +']');
+            if (this.hash.slice(1) === "") {
+              return false;
+            }
+
+            if (target.length) {
+              setTimeout(function() {
+                $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+              }, 400);
+              return false;
+            }
+          }
+        });
+      });
+
+      $(function() {
+
+        // Create a modal that fades on overlay and with slide in content
+        var createModal = function(el) {
+          $(el).modal({
+            onOpen: function (dialog) {
+              dialog.overlay.fadeIn('slow', function () {
+                dialog.data.hide();
+              });
+              dialog.container.fadeIn('slow', function () {
+                dialog.data.slideDown('slow');
+              });
+            }
           });
-        }});
-      }
+        };
 
-      /** This handles smooth scrolling to section ids */
-      function scrollToElement(selector, time, verticalOffset) {
+        $('.launch').click(function() {
+          var elementId = this.className.split(' ');
+          elementId = '#' + elementId[1];
 
-        var desktopHeight = 768,
-          mobileHeight = 480,
-          height = jQuery(window).height() || window.innerHeight || 768,
-          width = jQuery(window).width() || window.width || 480,
-          desktopDiff = desktopHeight - height;
-          mobileDiff = mobileHeight - height;
+          createModal(elementId);
+          //overflowToggle();
+          return;
+        });
 
-        time = typeof(time) !== 'undefined' ? time : 1000;
-        verticalOffset = typeof(verticalOffset) !== 'undefined' ? verticalOffset : 0;
-
-        if (width < 480) {
-          verticalOffset = verticalOffset + (mobileDiff/2);
-        } else {
-          verticalOffset = verticalOffset + (desktopDiff/2);
-        }
-
-        var element = $(selector),
-          offset = element.offset(),
-          offsetTop = offset.top + verticalOffset;
-
-        $('html, body').animate({
-          scrollTop: offsetTop
-        }, time);
-
-      }
-
-      /** Scroll to page ids */
-      $('.menu-about > a').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#about', 1500);
       });
-
-      $('.menu-portfolio > a').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#portfolio', 1500, -20);
-      });
-
-      $('.menu-contact > a').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#contact', 1500, -20);
-      });
-
-      $('#bio-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#bio', 1000, -50);
-      });
-
-      $('#skills-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#skills', 1000, -75);
-      });
-
-      $('#resume-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#resume', 1000, -120);
-      });
-
-      $('#local-ia-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#ia-design-section', 1000, -25);
-      });
-
-      $('#local-responsive-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#responsive-section', 1000, -25);
-      });
-
-      $('#local-mobile-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#mobile-section', 1000, -25);
-      });
-
-      $('#local-dd-nav').click( function(e) {
-        e.preventDefault();
-        scrollToElement('#ui-dd-section', 1000, -25);
-      });
-
-      $('#connect-nav').on( "click", function(e) {
-        e.preventDefault();
-        scrollToElement('#block-contact-me');
-      });
-
-      $('a.navbar-brand').on( "click", function(e) {
-        e.preventDefault();
-        $('html, body').animate({
-          scrollTop: 0
-        }, 1500);
-      });
-
-      /** Launch modals on click*/
-      $('.launch.ia-design').click(function () {
-        createModal("#ia-design");
-        overflowToggle();
-        return false;
-      });
-
-      $('.launch.mobile').click(function () {
-        createModal("#mobile");
-        overflowToggle();
-        return false;
-      });
-
-      $('.launch.responsive-ui').click(function () {
-        createModal("#responsive-ui");
-        overflowToggle();
-        return false;
-      });
-
-      $('.launch.ui-dd').click(function () {
-        createModal("#ui-dd");
-        overflowToggle();
-        return false;
-      });
-
-      $('a.resume').click(function () {
-        createModal("#about-detail");
-        overflowToggle();
-        return false;
-      });
-      
     }
+
   },
   // About us page, note the change from about-us to about_us.
   about_us: {
