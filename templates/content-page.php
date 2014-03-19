@@ -72,7 +72,7 @@ foreach ($pages as $page_data) {
 </div>
 
 <!-- Resume Modal Content -->
-<div id="about-detail">
+<div id="resume-detail">
 
 <?php
 
