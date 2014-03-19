@@ -145,6 +145,11 @@ footer {
     margin-top: 5px;
 }
 
+.navbar-nav>.active>a {
+  color: white;
+  background-color: transparent;
+}
+
 .navbar-nav {
   background-color: $almostBlack;
 
