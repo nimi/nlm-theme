@@ -8,5 +8,6 @@
 
   <?php wp_head(); ?>
 
+  <link rel="shortcut icon" href="http://nicholaslmitchell.com/wp-content/themes/nlm-theme/assets/image/icons/favicon.ico" />
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
 </head>
