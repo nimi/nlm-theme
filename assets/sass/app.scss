@@ -200,7 +200,7 @@ footer {
 
 .center-block {
   height: 50%;
-  width: 90%;
+  width: 100%;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -249,7 +249,7 @@ footer {
     letter-spacing: -3px;
     max-width: 840px;
     color: $peach;
-    font-size: 40px;
+    font-size: 38px;
     line-height: 28px;
   }
 
@@ -258,7 +258,7 @@ footer {
     color: $white;
     font-size: 22px;
     letter-spacing: 2px;
-    padding-bottom: 25px;
+    padding-bottom: 30px;
     @include font(aracne);
   }
 
@@ -610,7 +610,7 @@ footer {
     text-align: left;
     line-height: 30px;
     padding: 0 20px;
-    min-height: 75px;
+    min-height: 85px;
 
     h3 {
       font-size: 22px;
@@ -679,10 +679,9 @@ footer {
 
 
     h1 {
-      margin-top: auto;
+      margin: 50px auto 10px;
       text-align: center;
-      font-size: 39px;
-      line-height: 50px;
+      font-size: 40px;
     }
 
     .connect {
@@ -712,13 +711,6 @@ footer {
   hr {
       max-width: 100px;
       border-top: 10px solid white;
-  }
-
-  h1 {
-    margin: 50px auto 10px;
-    text-align: center;
-    font-size: 39px;
-    line-height: 0px;
   }
 
   #block-contact-me {
@@ -843,7 +835,7 @@ label {
 
 }
 
-#resume-detail {
+/*#resume-detail {
   text-align: left;
   font-size: 12px;
 
@@ -885,7 +877,7 @@ label {
     margin-bottom: 20px;
   }
 
-}
+}*/
 
 
 #simplemodal-overlay {
@@ -970,6 +962,7 @@ a.modalCloseImg {
         font-size: 13px;
         line-height: 24px;
         padding: 5px 12px;
+        margin: 10px 0;
 
         .site {
           background-color: $darkGray;
@@ -1315,6 +1308,10 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     font-size: 60px;
   }
 
+  .center-block {
+    width: 90%;
+  }
+
   .work {
     position: fixed;
     height: 800px;
@@ -1526,7 +1523,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
     .project-header {
 
-      padding: 20px 0;
+      padding: 0 35px;
 
       h2 {
         text-align: left;
